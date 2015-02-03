@@ -8,6 +8,8 @@
 
 #import "MoviesViewController.h"
 #import "MovieTableViewCell.h"
+#import "MovieViewController.h"
+#import "UIImageView+AFNetworking.h"
 
 #define kRottenTomatoesAPIKey @"kdfte37hampxct6f7xr8mzxb"
 #define kMovieTableViewCellHeight 100
@@ -60,14 +62,24 @@
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MovieTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"MovieTableViewCell"];
     
-    cell.titleLabel.text = self.movies[indexPath.row][@"title"];
-    cell.synopsisLabel.text = self.movies[indexPath.row][@"synopsis"];
+    NSDictionary *movie = self.movies[indexPath.row];
+    cell.titleLabel.text = movie[@"title"];
+    cell.synopsisLabel.text = movie[@"synopsis"];
+    
+    NSURL *imageURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@", [movie valueForKeyPath:@"posters.thumbnail"]]];
+    [cell.posterImageView setImageWithURL:imageURL];
     
     return cell;
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    NSDictionary *movie = self.movies[indexPath.row];
+    MovieViewController *mvc = [[MovieViewController alloc] init];
+    mvc.movie = movie;
+    
+    [self.navigationController pushViewController:mvc animated:YES];
 }
 
 /*
