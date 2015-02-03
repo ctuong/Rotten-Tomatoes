@@ -14,6 +14,10 @@
 		EBF973CC1A80BCAB00A3509B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBF973CB1A80BCAB00A3509B /* Images.xcassets */; };
 		EBF973CF1A80BCAB00A3509B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBF973CD1A80BCAB00A3509B /* LaunchScreen.xib */; };
 		EBF973DB1A80BCAB00A3509B /* Rotten_TomatoesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EBF973DA1A80BCAB00A3509B /* Rotten_TomatoesTests.m */; };
+		EBF973E71A80BCC300A3509B /* MoviesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBF973E51A80BCC300A3509B /* MoviesViewController.m */; };
+		EBF973E81A80BCC300A3509B /* MoviesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBF973E61A80BCC300A3509B /* MoviesViewController.xib */; };
+		EBF973EC1A80BDA100A3509B /* MovieTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EBF973EA1A80BDA100A3509B /* MovieTableViewCell.m */; };
+		EBF973ED1A80BDA100A3509B /* MovieTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBF973EB1A80BDA100A3509B /* MovieTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +44,12 @@
 		EBF973D41A80BCAB00A3509B /* Rotten TomatoesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Rotten TomatoesTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBF973D91A80BCAB00A3509B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EBF973DA1A80BCAB00A3509B /* Rotten_TomatoesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Rotten_TomatoesTests.m; sourceTree = "<group>"; };
+		EBF973E41A80BCC300A3509B /* MoviesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoviesViewController.h; sourceTree = "<group>"; };
+		EBF973E51A80BCC300A3509B /* MoviesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoviesViewController.m; sourceTree = "<group>"; };
+		EBF973E61A80BCC300A3509B /* MoviesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoviesViewController.xib; sourceTree = "<group>"; };
+		EBF973E91A80BDA100A3509B /* MovieTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieTableViewCell.h; sourceTree = "<group>"; };
+		EBF973EA1A80BDA100A3509B /* MovieTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieTableViewCell.m; sourceTree = "<group>"; };
+		EBF973EB1A80BDA100A3509B /* MovieTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MovieTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +99,12 @@
 				EBF973CB1A80BCAB00A3509B /* Images.xcassets */,
 				EBF973CD1A80BCAB00A3509B /* LaunchScreen.xib */,
 				EBF973BE1A80BCAB00A3509B /* Supporting Files */,
+				EBF973E41A80BCC300A3509B /* MoviesViewController.h */,
+				EBF973E51A80BCC300A3509B /* MoviesViewController.m */,
+				EBF973E61A80BCC300A3509B /* MoviesViewController.xib */,
+				EBF973E91A80BDA100A3509B /* MovieTableViewCell.h */,
+				EBF973EA1A80BDA100A3509B /* MovieTableViewCell.m */,
+				EBF973EB1A80BDA100A3509B /* MovieTableViewCell.xib */,
 			);
 			path = "Rotten Tomatoes";
 			sourceTree = "<group>";
@@ -200,8 +216,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBF973CA1A80BCAB00A3509B /* Main.storyboard in Resources */,
+				EBF973ED1A80BDA100A3509B /* MovieTableViewCell.xib in Resources */,
 				EBF973CF1A80BCAB00A3509B /* LaunchScreen.xib in Resources */,
 				EBF973CC1A80BCAB00A3509B /* Images.xcassets in Resources */,
+				EBF973E81A80BCC300A3509B /* MoviesViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,6 +240,8 @@
 				EBF973C71A80BCAB00A3509B /* ViewController.m in Sources */,
 				EBF973C41A80BCAB00A3509B /* AppDelegate.m in Sources */,
 				EBF973C11A80BCAB00A3509B /* main.m in Sources */,
+				EBF973EC1A80BDA100A3509B /* MovieTableViewCell.m in Sources */,
+				EBF973E71A80BCC300A3509B /* MoviesViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
