@@ -29,7 +29,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
     
     if (self) {
         self.title = @"Movies";
@@ -79,6 +78,13 @@
     return self.movies;
 }
 
+- (NSString *)getMovieLengthStringForTime:(NSInteger)time {
+    NSInteger numHours = time / 60;
+    NSInteger numMinutes = time - (60 * numHours);
+    
+    return [NSString stringWithFormat:@"%ld hr %ld min", numHours, numMinutes];
+}
+
 #pragma mark - TableView methods
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -89,10 +95,13 @@
     NSArray *currentMovies = [self getCurrentMovies];
     
     MovieTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"MovieTableViewCell"];
-    
+
     NSDictionary *movie = currentMovies[indexPath.row];
+    NSInteger runtime = [movie[@"runtime"] integerValue];
+    
     cell.titleLabel.text = movie[@"title"];
     cell.synopsisLabel.text = movie[@"synopsis"];
+    cell.mpaaAndLengthLabel.text = [NSString stringWithFormat:@"%@, %@", movie[@"mpaa_rating"], [self getMovieLengthStringForTime:runtime]];
     
     NSURL *imageURL = [NSURL URLWithString:[movie valueForKeyPath:@"posters.thumbnail"]];
     [cell.posterImageView setImageWithURL:imageURL];

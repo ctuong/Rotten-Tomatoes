@@ -12,6 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *synopsisLabel;
+@property (weak, nonatomic) IBOutlet UILabel *mpaaAndLengthLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *posterImageView;
 
 @end
