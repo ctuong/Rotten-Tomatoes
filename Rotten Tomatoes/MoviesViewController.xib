@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MoviesViewController">
             <connections>
+                <outlet property="searchDisplayController" destination="ceK-Ux-b8c" id="lLo-J3-3uf"/>
                 <outlet property="tableView" destination="H1w-Qr-4mL" id="3Je-75-ayF"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -22,8 +23,16 @@
                 </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <point key="canvasLocation" x="305" y="376"/>
+            <point key="canvasLocation" x="411" y="339"/>
         </view>
+        <searchDisplayController id="ceK-Ux-b8c">
+            <connections>
+                <outlet property="delegate" destination="-1" id="hi5-hJ-3B1"/>
+                <outlet property="searchContentsController" destination="-1" id="Qx2-PJ-UoR"/>
+                <outlet property="searchResultsDataSource" destination="-1" id="Hxh-k3-8PX"/>
+                <outlet property="searchResultsDelegate" destination="-1" id="mD8-pQ-v10"/>
+            </connections>
+        </searchDisplayController>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
