@@ -29,9 +29,12 @@
     self.synopsisLabel.text = self.movie[@"synopsis"];
     
     // set the image
-    NSString *thumbnailURLString = [NSString stringWithFormat:@"%@", [self.movie valueForKeyPath:@"posters.thumbnail"]];
+    NSString *thumbnailURLString = [self.movie valueForKeyPath:@"posters.thumbnail"];
     NSString *originalImageURLString = [thumbnailURLString stringByReplacingOccurrencesOfString:@"_tmb" withString:@"_ori"];
     NSURL *imageURL = [NSURL URLWithString:originalImageURLString];
+    
+    NSLog(@"%@", originalImageURLString);
+    
     [self.posterImageView setImageWithURL:imageURL];
     self.posterImageView.alpha = 0.3;
 }

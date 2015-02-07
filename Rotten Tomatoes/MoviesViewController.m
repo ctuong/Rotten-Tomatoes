@@ -66,7 +66,7 @@
     cell.titleLabel.text = movie[@"title"];
     cell.synopsisLabel.text = movie[@"synopsis"];
     
-    NSURL *imageURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@", [movie valueForKeyPath:@"posters.thumbnail"]]];
+    NSURL *imageURL = [NSURL URLWithString:[movie valueForKeyPath:@"posters.thumbnail"]];
     [cell.posterImageView setImageWithURL:imageURL];
     
     return cell;

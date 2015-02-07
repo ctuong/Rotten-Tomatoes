@@ -12,8 +12,6 @@
 		EB229C501A80C7D20036CDC7 /* MovieViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB229C4E1A80C7D20036CDC7 /* MovieViewController.xib */; };
 		EBF973C11A80BCAB00A3509B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EBF973C01A80BCAB00A3509B /* main.m */; };
 		EBF973C41A80BCAB00A3509B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EBF973C31A80BCAB00A3509B /* AppDelegate.m */; };
-		EBF973C71A80BCAB00A3509B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBF973C61A80BCAB00A3509B /* ViewController.m */; };
-		EBF973CA1A80BCAB00A3509B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBF973C81A80BCAB00A3509B /* Main.storyboard */; };
 		EBF973CC1A80BCAB00A3509B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBF973CB1A80BCAB00A3509B /* Images.xcassets */; };
 		EBF973CF1A80BCAB00A3509B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBF973CD1A80BCAB00A3509B /* LaunchScreen.xib */; };
 		EBF973DB1A80BCAB00A3509B /* Rotten_TomatoesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EBF973DA1A80BCAB00A3509B /* Rotten_TomatoesTests.m */; };
@@ -43,9 +41,6 @@
 		EBF973C01A80BCAB00A3509B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EBF973C21A80BCAB00A3509B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EBF973C31A80BCAB00A3509B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		EBF973C51A80BCAB00A3509B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		EBF973C61A80BCAB00A3509B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		EBF973C91A80BCAB00A3509B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EBF973CB1A80BCAB00A3509B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		EBF973CE1A80BCAB00A3509B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		EBF973D41A80BCAB00A3509B /* Rotten TomatoesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Rotten TomatoesTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -122,9 +117,6 @@
 			children = (
 				EBF973C21A80BCAB00A3509B /* AppDelegate.h */,
 				EBF973C31A80BCAB00A3509B /* AppDelegate.m */,
-				EBF973C51A80BCAB00A3509B /* ViewController.h */,
-				EBF973C61A80BCAB00A3509B /* ViewController.m */,
-				EBF973C81A80BCAB00A3509B /* Main.storyboard */,
 				EBF973CB1A80BCAB00A3509B /* Images.xcassets */,
 				EBF973CD1A80BCAB00A3509B /* LaunchScreen.xib */,
 				EBF973BE1A80BCAB00A3509B /* Supporting Files */,
@@ -249,7 +241,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EBF973CA1A80BCAB00A3509B /* Main.storyboard in Resources */,
 				EBF973ED1A80BDA100A3509B /* MovieTableViewCell.xib in Resources */,
 				EBF973CF1A80BCAB00A3509B /* LaunchScreen.xib in Resources */,
 				EB229C501A80C7D20036CDC7 /* MovieViewController.xib in Resources */,
@@ -305,7 +296,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EBF973C71A80BCAB00A3509B /* ViewController.m in Sources */,
 				EB229C4F1A80C7D20036CDC7 /* MovieViewController.m in Sources */,
 				EBF973C41A80BCAB00A3509B /* AppDelegate.m in Sources */,
 				EBF973C11A80BCAB00A3509B /* main.m in Sources */,
@@ -333,14 +323,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		EBF973C81A80BCAB00A3509B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EBF973C91A80BCAB00A3509B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		EBF973CD1A80BCAB00A3509B /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
