@@ -21,6 +21,7 @@
 @property (nonatomic, strong) UISearchController *searchController;
 @property (nonatomic, strong) NSArray *searchResults;
 @property (atomic) BOOL useSearchResults;
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
 
 @end
 
@@ -50,6 +51,11 @@
     self.searchController.searchResultsUpdater = self;
     self.searchController.delegate = self;
     self.tableView.tableHeaderView = self.searchController.searchBar;
+    
+    // set up the refresh control
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(fetchMovieData) forControlEvents:UIControlEventValueChanged];
+    [self.tableView insertSubview:self.refreshControl atIndex:0];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -64,6 +70,7 @@
         NSDictionary *result = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
         self.movies = result[@"movies"];
         [self.tableView reloadData];
+        [self.refreshControl endRefreshing];
     }];
 }
 
