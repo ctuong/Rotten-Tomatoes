@@ -10,6 +10,7 @@
 #import "MovieTableViewCell.h"
 #import "MovieViewController.h"
 #import "UIImageView+AFNetworking.h"
+#import "SVProgressHUD.h"
 
 #define kRottenTomatoesAPIKey @"kdfte37hampxct6f7xr8mzxb"
 #define kMovieTableViewCellHeight 100
@@ -42,6 +43,8 @@
     self.tableView.rowHeight = kMovieTableViewCellHeight;
     [self.tableView registerNib:[UINib nibWithNibName:@"MovieTableViewCell" bundle:nil] forCellReuseIdentifier:@"MovieTableViewCell"];
     
+    [SVProgressHUD setBackgroundColor:[UIColor clearColor]];
+    [SVProgressHUD show];
     [self fetchMovieData];
     
     // set up the search controller
@@ -70,6 +73,7 @@
         self.movies = result[@"movies"];
         [self.tableView reloadData];
         [self.refreshControl endRefreshing];
+        [SVProgressHUD dismiss];
     }];
 }
 
@@ -85,6 +89,31 @@
     return [NSString stringWithFormat:@"%ld hr %ld min", numHours, numMinutes];
 }
 
+- (NSInteger)getNumFullStarsForScore:(NSInteger)score {
+    return score / 20;
+}
+
+- (NSInteger)getNumHalfStarsForScore:(NSInteger)score {
+    return (score % 20) / 10;
+}
+
+- (void)fillStarsArray:(NSArray *)array withStarsForScore:(NSInteger)score {
+    NSInteger fullStars = [self getNumFullStarsForScore:score];
+    NSInteger halfStars = [self getNumHalfStarsForScore:score];
+    
+    for (UIImageView *starImage in array) {
+        if (fullStars > 0) {
+            [starImage setImage:[UIImage imageNamed:@"full-star"]];
+            fullStars--;
+        } else if (halfStars > 0) {
+            [starImage setImage:[UIImage imageNamed:@"half-star"]];
+            halfStars--;
+        } else {
+            [starImage setImage:[UIImage imageNamed:@"empty-star"]];
+        }
+    }
+}
+
 #pragma mark - TableView methods
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -98,9 +127,13 @@
 
     NSDictionary *movie = currentMovies[indexPath.row];
     NSInteger runtime = [movie[@"runtime"] integerValue];
+    NSInteger criticsScore = [[movie valueForKeyPath:@"ratings.critics_score"] integerValue];
+    NSInteger audienceScore = [[movie valueForKeyPath:@"ratings.audience_score"] integerValue];
+    
+    [self fillStarsArray:[cell criticsStarArray] withStarsForScore:criticsScore];
+    [self fillStarsArray:[cell audienceStarArray] withStarsForScore:audienceScore];
     
     cell.titleLabel.text = movie[@"title"];
-    cell.synopsisLabel.text = movie[@"synopsis"];
     cell.mpaaAndLengthLabel.text = [NSString stringWithFormat:@"%@, %@", movie[@"mpaa_rating"], [self getMovieLengthStringForTime:runtime]];
     
     NSURL *imageURL = [NSURL URLWithString:[movie valueForKeyPath:@"posters.thumbnail"]];

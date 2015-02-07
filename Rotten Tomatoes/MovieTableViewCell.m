@@ -20,4 +20,12 @@
     // Configure the view for the selected state
 }
 
+- (NSArray *)criticsStarArray {
+    return [NSArray arrayWithObjects:self.criticsStar1, self.criticsStar2, self.criticsStar3, self.criticsStar4, self.criticsStar5, nil];
+}
+
+- (NSArray *)audienceStarArray {
+    return [NSArray arrayWithObjects:self.audienceStar1, self.audienceStar2, self.audienceStar3, self.audienceStar4, self.audienceStar5, nil];
+}
+
 @end

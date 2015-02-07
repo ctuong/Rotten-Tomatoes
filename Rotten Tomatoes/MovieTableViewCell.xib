@@ -31,19 +31,75 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GwX-08-oGd">
-                        <rect key="frame" x="80" y="47" width="232" height="44.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Critics Say" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eVT-8n-6de">
+                        <rect key="frame" x="80" y="48" width="61" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Audience Says" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Cqg-kk-L92">
+                        <rect key="frame" x="80" y="70" width="83" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="ujC-Jf-dqk">
+                        <rect key="frame" x="169" y="48" width="23" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="lJ1-Ff-Kg7">
+                        <rect key="frame" x="194" y="48" width="23" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="VcZ-gp-ud1">
+                        <rect key="frame" x="219" y="48" width="23" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="qHw-eg-bd7">
+                        <rect key="frame" x="244" y="48" width="23" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="qNZ-qJ-IzE">
+                        <rect key="frame" x="269" y="48" width="23" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Nmj-y0-7Nh">
+                        <rect key="frame" x="169" y="70" width="23" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="rgE-tR-f8I">
+                        <rect key="frame" x="194" y="70" width="23" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="olD-Dz-tT4">
+                        <rect key="frame" x="219" y="70" width="23" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="1ds-Gh-gD9">
+                        <rect key="frame" x="244" y="70" width="23" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="AT8-VL-Icg">
+                        <rect key="frame" x="269" y="70" width="23" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </imageView>
                 </subviews>
             </tableViewCellContentView>
             <connections>
+                <outlet property="audienceStar1" destination="Nmj-y0-7Nh" id="gg3-y3-h7r"/>
+                <outlet property="audienceStar2" destination="rgE-tR-f8I" id="xZN-sp-uzd"/>
+                <outlet property="audienceStar3" destination="olD-Dz-tT4" id="FJe-2y-z5h"/>
+                <outlet property="audienceStar4" destination="1ds-Gh-gD9" id="Gzo-Qx-ML8"/>
+                <outlet property="audienceStar5" destination="AT8-VL-Icg" id="IMi-7M-c1T"/>
+                <outlet property="criticsStar1" destination="ujC-Jf-dqk" id="cVj-d6-afs"/>
+                <outlet property="criticsStar2" destination="lJ1-Ff-Kg7" id="a9h-cQ-GWu"/>
+                <outlet property="criticsStar3" destination="VcZ-gp-ud1" id="87u-y1-unW"/>
+                <outlet property="criticsStar4" destination="qHw-eg-bd7" id="jI1-BA-MXP"/>
+                <outlet property="criticsStar5" destination="qNZ-qJ-IzE" id="mcr-nQ-zdf"/>
                 <outlet property="mpaaAndLengthLabel" destination="A1v-ee-VX2" id="Nnu-wk-9NM"/>
                 <outlet property="posterImageView" destination="VJK-vW-c3k" id="ihK-DF-2kI"/>
-                <outlet property="synopsisLabel" destination="GwX-08-oGd" id="tfO-6L-iO9"/>
                 <outlet property="titleLabel" destination="btw-vZ-LZp" id="Vpp-Ns-UwR"/>
             </connections>
             <point key="canvasLocation" x="139" y="182"/>
