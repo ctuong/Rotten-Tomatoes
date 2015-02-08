@@ -22,6 +22,15 @@
     
     MoviesViewController *mvc = [[MoviesViewController alloc] init];
     UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:mvc];
+    
+    // set up the segmented control in the NavigationController title
+    UISegmentedControl *viewStyleControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"List", @"Icon", nil]];
+    [viewStyleControl sizeToFit];
+    [viewStyleControl setSelectedSegmentIndex:0];
+    CGRect frame = [viewStyleControl frame];
+    viewStyleControl.frame = CGRectMake(frame.origin.x, frame.origin.y, 200, frame.size.height);
+    nc.navigationBar.topItem.titleView = viewStyleControl;
+    
     self.window.rootViewController = nc;
     
     [self.window makeKeyAndVisible];

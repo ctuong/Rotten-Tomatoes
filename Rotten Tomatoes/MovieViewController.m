@@ -32,7 +32,7 @@
     NSString *thumbnailURLString = [self.movie valueForKeyPath:@"posters.thumbnail"];
     NSString *originalImageURLString = [thumbnailURLString stringByReplacingOccurrencesOfString:@"_tmb" withString:@"_ori"];
     NSURL *imageURL = [NSURL URLWithString:originalImageURLString];
-    [self.posterImageView setImageWithURL:imageURL];
+    [self.posterImageView setImageWithURL:imageURL placeholderImage:self.placeholderImage];
     self.posterImageView.alpha = 0.3;
 }
 

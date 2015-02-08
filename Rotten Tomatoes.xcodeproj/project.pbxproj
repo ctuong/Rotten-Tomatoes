@@ -10,6 +10,8 @@
 		AAE2C000834611B68AEB18A2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FF01DFD378BD261B3A217FA7 /* libPods.a */; };
 		EB229C4F1A80C7D20036CDC7 /* MovieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB229C4D1A80C7D20036CDC7 /* MovieViewController.m */; };
 		EB229C501A80C7D20036CDC7 /* MovieViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB229C4E1A80C7D20036CDC7 /* MovieViewController.xib */; };
+		EBD081051A874772006DBA5D /* MovieCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD081031A874772006DBA5D /* MovieCollectionViewCell.m */; };
+		EBD081061A874772006DBA5D /* MovieCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBD081041A874772006DBA5D /* MovieCollectionViewCell.xib */; };
 		EBF973C11A80BCAB00A3509B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EBF973C01A80BCAB00A3509B /* main.m */; };
 		EBF973C41A80BCAB00A3509B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EBF973C31A80BCAB00A3509B /* AppDelegate.m */; };
 		EBF973CC1A80BCAB00A3509B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBF973CB1A80BCAB00A3509B /* Images.xcassets */; };
@@ -36,6 +38,9 @@
 		EB229C4C1A80C7D20036CDC7 /* MovieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieViewController.h; sourceTree = "<group>"; };
 		EB229C4D1A80C7D20036CDC7 /* MovieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieViewController.m; sourceTree = "<group>"; };
 		EB229C4E1A80C7D20036CDC7 /* MovieViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MovieViewController.xib; sourceTree = "<group>"; };
+		EBD081021A874772006DBA5D /* MovieCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieCollectionViewCell.h; sourceTree = "<group>"; };
+		EBD081031A874772006DBA5D /* MovieCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieCollectionViewCell.m; sourceTree = "<group>"; };
+		EBD081041A874772006DBA5D /* MovieCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MovieCollectionViewCell.xib; sourceTree = "<group>"; };
 		EBF973BB1A80BCAB00A3509B /* Rotten Tomatoes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rotten Tomatoes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBF973BF1A80BCAB00A3509B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EBF973C01A80BCAB00A3509B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -129,6 +134,9 @@
 				EB229C4C1A80C7D20036CDC7 /* MovieViewController.h */,
 				EB229C4D1A80C7D20036CDC7 /* MovieViewController.m */,
 				EB229C4E1A80C7D20036CDC7 /* MovieViewController.xib */,
+				EBD081021A874772006DBA5D /* MovieCollectionViewCell.h */,
+				EBD081031A874772006DBA5D /* MovieCollectionViewCell.m */,
+				EBD081041A874772006DBA5D /* MovieCollectionViewCell.xib */,
 			);
 			path = "Rotten Tomatoes";
 			sourceTree = "<group>";
@@ -246,6 +254,7 @@
 				EB229C501A80C7D20036CDC7 /* MovieViewController.xib in Resources */,
 				EBF973CC1A80BCAB00A3509B /* Images.xcassets in Resources */,
 				EBF973E81A80BCC300A3509B /* MoviesViewController.xib in Resources */,
+				EBD081061A874772006DBA5D /* MovieCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,6 +310,7 @@
 				EBF973C11A80BCAB00A3509B /* main.m in Sources */,
 				EBF973EC1A80BDA100A3509B /* MovieTableViewCell.m in Sources */,
 				EBF973E71A80BCC300A3509B /* MoviesViewController.m in Sources */,
+				EBD081051A874772006DBA5D /* MovieCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
