@@ -18,12 +18,12 @@
 #define kNumColumnsInCollectionView 2
 #define kListViewIndex 0
 
-@interface MoviesViewController () <UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating, UISearchControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+@interface MoviesViewController () <UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating, UISearchControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UINavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSArray *movies;
 @property (nonatomic, strong) UISearchController *searchController;
-@property (nonatomic, strong) NSArray *searchResults;
+@property (nonatomic, strong) NSMutableArray *searchResults;
 @property (atomic) BOOL useSearchResults;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
 @property (weak, nonatomic) IBOutlet UIView *networkErrorView;
@@ -63,12 +63,6 @@
     self.searchController.dimsBackgroundDuringPresentation = NO;
     self.searchController.hidesNavigationBarDuringPresentation = NO;
     
-    // set up the table header
-//    self.tableHeaderView = [[UIView alloc] init];
-//    [self.tableHeaderView addSubview:self.searchController.searchBar];
-//    [self.tableHeaderView addSubview:self.networkErrorView];
-//    self.tableView.tableHeaderView = self.tableHeaderView;
-    
     // set up the refresh control
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(fetchMovieData) forControlEvents:UIControlEventValueChanged];
@@ -78,13 +72,14 @@
     // set up the segmented control
     self.viewStyleControl = (UISegmentedControl *)self.navigationController.navigationBar.topItem.titleView;
     [self.viewStyleControl addTarget:self action:@selector(viewStyleChanged) forControlEvents:UIControlEventValueChanged];
+    
+    // set up navigation controller delegate
+    self.navigationController.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-    
-    NSLog(@"memory warning");
 }
 
 - (void)fetchMovieData {
@@ -98,6 +93,7 @@
         } else {
             NSDictionary *result = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
             self.movies = result[@"movies"];
+            self.searchResults = [NSMutableArray arrayWithArray:self.movies];
             [self.tableView reloadData];
             [self.collectionView reloadData];
             [self.networkErrorView setHidden:YES];
@@ -260,18 +256,19 @@
     NSLog(@"updating search %@", searchController.searchBar.text);
     
     NSString *searchText = searchController.searchBar.text;
+    [self.searchResults removeAllObjects];
     if ([searchText length] == 0) {
         // if no search text, default to all movies
-        self.searchResults = self.movies;
+        [self.searchResults addObjectsFromArray:self.movies];
     } else {
-        self.searchResults = [self moviesForSearchText:searchText];
+        [self.searchResults addObjectsFromArray:[self moviesForSearchText:searchText]];
     }
     [self.tableView reloadData];
 }
 
 // filter the list of movies to only those whose title contains the search text
 - (NSArray *)moviesForSearchText:(NSString *)text {
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title CONTAINS[c] %@", text];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title CONTAINS[cd] %@", text];
     NSArray *results = [self.movies filteredArrayUsingPredicate:predicate];
     return results;
 }
@@ -290,7 +287,16 @@
     NSLog(@"presented search");
     
     self.useSearchResults = true;
-    self.searchResults = [NSArray arrayWithArray:self.movies];
+    [self.searchResults removeAllObjects];
+    [self.searchResults addObjectsFromArray:self.movies];
+}
+
+#pragma mark NavigationController methods
+
+- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
+    if (self == viewController) {
+        navigationController.navigationBar.alpha = 1;
+    }
 }
 
 /*
