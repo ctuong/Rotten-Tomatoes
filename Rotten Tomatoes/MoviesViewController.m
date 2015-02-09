@@ -60,6 +60,7 @@
     
     // set up the refresh control
     self.refreshControl = [[UIRefreshControl alloc] init];
+    self.refreshControl.tintColor = [UIColor colorWithWhite:0 alpha:1];
     [self.refreshControl addTarget:self action:@selector(fetchMovieData) forControlEvents:UIControlEventValueChanged];
     [self.tableView insertSubview:self.refreshControl atIndex:0];
     [self.collectionView insertSubview:self.refreshControl atIndex:0];
@@ -83,7 +84,6 @@
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         if (connectionError) {
-            NSLog(@"%@", connectionError);
             [self.networkErrorView setHidden:NO];
         } else {
             NSDictionary *result = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
@@ -218,7 +218,12 @@
     
     cell.titleLabel.text = movie[@"title"];
     cell.mpaaAndLengthLabel.text = [NSString stringWithFormat:@"%@, %@", movie[@"mpaa_rating"], [self getMovieLengthStringForTime:runtime]];
-    [cell.posterImageView setImageWithURL:[NSURL URLWithString:[movie valueForKeyPath:@"posters.thumbnail"]]];
+    
+    NSString *thumbnailURLString = [movie valueForKeyPath:@"posters.thumbnail"];
+    NSString *originalImageURLString = [thumbnailURLString stringByReplacingOccurrencesOfString:@"_tmb" withString:@"_ori"];
+    NSURL *imageURL = [NSURL URLWithString:originalImageURLString];
+    
+    [cell.posterImageView setImageWithURL:imageURL];
     
     return cell;
 }

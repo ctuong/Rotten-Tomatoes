@@ -31,6 +31,8 @@
     viewStyleControl.frame = CGRectMake(frame.origin.x, frame.origin.y, 200, frame.size.height);
     nc.navigationBar.topItem.titleView = viewStyleControl;
     
+    nc.navigationBar.tintColor = [UIColor colorWithWhite:0.3 alpha:1];
+    
     self.window.rootViewController = nc;
     
     [self.window makeKeyAndVisible];
