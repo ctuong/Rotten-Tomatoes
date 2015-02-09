@@ -1,6 +1,6 @@
 ## Rotten Tomatoes
 
-This is a movies app displaying box office and top rental DVDs using the [Rotten Tomatoes API](http://developer.rottentomatoes.com/docs/read/JSON).
+This is a movies app displaying box office movies using the [Rotten Tomatoes API](http://developer.rottentomatoes.com/docs/read/JSON).
 
 Time spent: 10 hours
 
