@@ -8,6 +8,7 @@
             <connections>
                 <outlet property="collectionView" destination="r0t-eG-WtC" id="l1R-Ea-zc6"/>
                 <outlet property="networkErrorView" destination="J6c-Gb-95d" id="JZd-r0-9YO"/>
+                <outlet property="searchBar" destination="mKG-Qx-1dp" id="DIM-Pk-kPY"/>
                 <outlet property="tableView" destination="H1w-Qr-4mL" id="3Je-75-ayF"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -18,7 +19,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="H1w-Qr-4mL">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                    <rect key="frame" x="0.0" y="44" width="320" height="460"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
@@ -41,7 +42,7 @@
                     <color key="backgroundColor" red="0.73760190217391308" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
                 <collectionView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" id="r0t-eG-WtC">
-                    <rect key="frame" x="0.0" y="63" width="320" height="504"/>
+                    <rect key="frame" x="0.0" y="107" width="320" height="460"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="M1p-Cy-9pC">
@@ -51,6 +52,11 @@
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
+                <searchBar contentMode="redraw" id="mKG-Qx-1dp">
+                    <rect key="frame" x="0.0" y="63" width="320" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <textInputTraits key="textInputTraits"/>
+                </searchBar>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>

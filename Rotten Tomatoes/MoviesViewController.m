@@ -18,12 +18,12 @@
 #define kNumColumnsInCollectionView 2
 #define kListViewIndex 0
 
-@interface MoviesViewController () <UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating, UISearchControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UINavigationControllerDelegate>
+@interface MoviesViewController () <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UINavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSArray *movies;
-@property (nonatomic, strong) UISearchController *searchController;
 @property (nonatomic, strong) NSMutableArray *searchResults;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (atomic) BOOL useSearchResults;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
 @property (weak, nonatomic) IBOutlet UIView *networkErrorView;
@@ -55,13 +55,8 @@
     [SVProgressHUD show];
     [self fetchMovieData];
     
-    // set up the search controller
-    self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
-    [self.searchController.searchBar sizeToFit];
-    self.searchController.searchResultsUpdater = self;
-    self.searchController.delegate = self;
-    self.searchController.dimsBackgroundDuringPresentation = NO;
-    self.searchController.hidesNavigationBarDuringPresentation = NO;
+    // set up the search bar
+    self.searchBar.delegate = self;
     
     // set up the refresh control
     self.refreshControl = [[UIRefreshControl alloc] init];
@@ -202,20 +197,6 @@
     [self pushMovieViewControllerWithPlaceholderImage:cell.posterImageView.image ForMovieAtIndex:indexPath.row];
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
-
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    // one section with the search bar as the header
-    return self.searchController.searchBar;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    // height of the search bar
-    return [self.searchController.searchBar frame].size.height;
-}
-
 #pragma mark - CollectionView methods
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
@@ -250,12 +231,19 @@
     [self pushMovieViewControllerWithPlaceholderImage:cell.posterImageView.image ForMovieAtIndex:(kNumColumnsInCollectionView * indexPath.section) + indexPath.row];
 }
 
-#pragma mark - SearchController methods
+#pragma mark - SearchBar methods
 
-- (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
-    NSLog(@"updating search %@", searchController.searchBar.text);
-    
-    NSString *searchText = searchController.searchBar.text;
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    [self getSearchResultsForSearchText:searchText];
+}
+
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+    self.searchBar.showsCancelButton = YES;
+    self.useSearchResults = true;
+    [self getSearchResultsForSearchText:searchBar.text];
+}
+
+- (void)getSearchResultsForSearchText:(NSString *)searchText {
     [self.searchResults removeAllObjects];
     if ([searchText length] == 0) {
         // if no search text, default to all movies
@@ -264,6 +252,7 @@
         [self.searchResults addObjectsFromArray:[self moviesForSearchText:searchText]];
     }
     [self.tableView reloadData];
+    [self.collectionView reloadData];
 }
 
 // filter the list of movies to only those whose title contains the search text
@@ -273,22 +262,15 @@
     return results;
 }
 
-// when the search bar goes away, reset the table to all movies
-- (void)didDismissSearchController:(UISearchController *)searchController {
-    NSLog(@"dismissed search");
-    
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
+    self.searchBar.showsCancelButton = NO;
     self.useSearchResults = false;
     [self.tableView reloadData];
     [self.collectionView reloadData];
 }
 
-// when the search bar is selected, set the searchResults to all movies
-- (void)didPresentSearchController:(UISearchController *)searchController {
-    NSLog(@"presented search");
-    
-    self.useSearchResults = true;
-    [self.searchResults removeAllObjects];
-    [self.searchResults addObjectsFromArray:self.movies];
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    [self.searchBar endEditing:YES];
 }
 
 #pragma mark NavigationController methods
